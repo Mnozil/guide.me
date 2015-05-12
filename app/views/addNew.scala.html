@@ -1,14 +1,32 @@
-@()
+
+@(genres: List[Genre])(successMessage: String)
 
 @main("addNew") {
 
-<form action="@routes.MovieActions.createMovie()" method="post" class="form-inline">
-<div class="form-group">
-    <label for="movie-title">Title</label>
-    <input class="form-control" type="text" name="title" id="movie-title"/>
-</div>
-<button class="form-control" type="submit">Add</button>
 
-</form>
+    @if(successMessage) {
+        <div class="alert alert-success">@successMessage</div>
+    }
+
+    <form action="@routes.MovieActions.createMovie()" method="post" class="form-inline">
+        <div class="form-group">
+            <label for="movie-title">Movie Title</label>
+            <input type="text" class="form-control" id="movie-title" name="name">
+        </div>
+        <div class="form-group">
+            <label for="movie-genre">Genre</label>
+            <select class="form-control" name="genre-id" onchange="document.getElementById('new-genre-input').style.display = (this.value == 0) ? 'inline-block':'none'">
+                @for(genre <- genres) {
+                    <option value="@genre.id">@genre.name</option>
+
+                }
+                <option value="0">add new Genre...</option>
+            </select>
+        </div>
+        <input class="form-control" type="text" id="new-genre-input" name="genre-name" style="display:none" />
+        <button type="submit" class="btn btn-default">
+            <span class="glyphicon-plus"></span> Add
+        </button>
+    </form>
 
 }

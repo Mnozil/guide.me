@@ -1,0 +1,19 @@
+
+@(recentGenre: Genre, allGenres: List[Genre], movies: List[Movie])
+
+@main("showGenre") {
+
+  <form action="@routes.MovieActions.showGenre()" method="get" class="form-inline">
+    <div class="form-group">
+      <label for="movie-title">What mood are you in?</label>
+      <select class="form-control" id="genre-id" name="id" onchange="this.form.submit()">
+      @for(genre <- allGenres) {
+        <option value="@genre.id" @if(genre.id == recentGenre.id){ selected }>@genre.name</option>
+      }
+      </select>
+    </div>
+
+
+  @movieList(movies)
+
+}

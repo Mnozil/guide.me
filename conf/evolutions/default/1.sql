@@ -1,7 +1,7 @@
 # --- !Ups
 CREATE TABLE `Movie` (
 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	`name`	TEXT
+	`title`	TEXT
 );
 
 # --- !Downs

@@ -1,24 +1,23 @@
-@(templateName: String)(content: Html)
+@(template: String)(content: Html)
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>My movie collection</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
-    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
+    <head>
+        <title>My movie collection</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
+        <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
+    </head>
+    <body>
 
-</head>
-<body>
-
-    <div class="container">
-        <h1>My movie collection</h1>
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="@if(templateName == "showAll") { active }"><a href="@routes.MovieActions.showAll()">Show all</a></li>
-            <li role="presentation" class=""><a href="#">2</a></li>
-            <li role="presentation" class="@if(templateName == "addNew") { active }"><a href="@routes.MovieActions.addMovie()">Add new</a></li>
-        </ul>
-        @content
-    </div>
-</body>
+        <div class="container">
+            <h1>My movie collection</h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="@{if (template == "showAll") { "active" }}"><a href="@routes.MovieActions.showAll()">Show All Movies</a></li>
+                <li role="presentation" class="@{if (template == "showGenre") { "active" }}"><a href="@routes.MovieActions.showGenre()">Show by Genre</a></li>
+                <li role="presentation" class="@{if (template == "addNew") { "active" }}"><a href="@routes.MovieActions.addNew()">Add new Movie</a></li>
+            </ul>
+            @content
+        </div>
+    </body>
 </html>

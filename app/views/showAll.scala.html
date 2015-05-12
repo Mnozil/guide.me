@@ -1,28 +1,8 @@
-@(allMovies:List[Movie])
+
+@(allMovies: List[Movie])
 
 @main("showAll") {
 
-<table class="table table-striped">
-
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th></th>
-    </tr>
-
-    @*for(movie <- allMovies) {*@
-        @*<tr>*@
-            @*<td>@movie.id</td>*@
-            @*<td>@movie.title</td>*@
-            @*<td></td>*@
-        @*</tr>*@
-    @*}*@
-    @for(movie <- allMovies) {
-        <tr>
-            <td>@movie.id</td>
-            <td>@movie.title</td>
-        </tr>
-    }
-</table>
+    @movieList(allMovies)
 
 }

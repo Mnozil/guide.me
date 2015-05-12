@@ -14,8 +14,6 @@ libraryDependencies ++= Seq(
   javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
   "org.hibernate" % "hibernate-entitymanager" % "4.3.9.Final" // replace by your jpa implementation
 )
-//val appDependencies = Seq(
-//  "mysql" % "mysql-connector-java" % "5.1.18"
-//)
+
 
 playJavaSettings
