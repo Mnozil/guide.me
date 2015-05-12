@@ -1,27 +1,23 @@
-@(title: String)(content: Html)
+@(templateName: String)(content: Html)
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@title</title>
+    <title>My movie collection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
     <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
-    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
-    <style>
-    body {
-        margin-top: 50px;
-    }
-    </style>
+
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a id="titleLink" class="brand" href="/">@title</a>
-            </div>
-        </div>
-    </div>
+
     <div class="container">
+        <h1>My movie collection</h1>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="@if(templateName == "showAll") { active }"><a href="@routes.MovieActions.showAll()">Show all</a></li>
+            <li role="presentation" class=""><a href="#">2</a></li>
+            <li role="presentation" class="@if(templateName == "addNew") { active }"><a href="@routes.MovieActions.addMovie()">Add new</a></li>
+        </ul>
         @content
     </div>
 </body>
