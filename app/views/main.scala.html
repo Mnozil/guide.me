@@ -1,4 +1,4 @@
-@(template: String)(content: Html)
+@()
 
 <!DOCTYPE html>
 <html>
@@ -13,11 +13,10 @@
         <div class="container">
             <h1>My movie collection</h1>
             <ul class="nav nav-tabs">
-                <li role="presentation" class="@{if (template == "showAll") { "active" }}"><a href="@routes.MovieActions.showAll()">Show All Movies</a></li>
-                <li role="presentation" class="@{if (template == "showGenre") { "active" }}"><a href="@routes.MovieActions.showGenre()">Show by Genre</a></li>
-                <li role="presentation" class="@{if (template == "addNew") { "active" }}"><a href="@routes.MovieActions.addNew()">Add new Movie</a></li>
+                <li role="presentation" class=""><a href="#">Show All Movies</a></li>
+                <li role="presentation" class=""><a href="#">Show by Genre</a></li>
+                <li role="presentation" class=""><a href="#">Add new Movie</a></li>
             </ul>
-            @content
         </div>
     </body>
 </html>

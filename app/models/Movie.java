@@ -20,9 +20,13 @@ public class Movie {
     @Constraints.Required
     public String title;
 
-    @ManyToOne
-    @JoinColumn(name = "genre")
-    public Genre genre;
+    //    @ManyToOne
+//    @JoinColumn(name = "genre")
+    public String genre;
+
+    public String year;
+
+    public Boolean watched;
 
 
     public static List<Movie> findAll() {
@@ -39,5 +43,12 @@ public class Movie {
         JPA.em().persist(this);
     }
 
+    public Movie update() {
+        return JPA.em().merge(this);
 
+    }
+
+    public void delete() {
+        JPA.em().remove(this);
+    }
 }

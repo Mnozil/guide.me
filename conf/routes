@@ -1,14 +1,21 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
+#
+#GET           /                     controllers.MovieActions.showAll()
+#GET           /addNew               controllers.MovieActions.addNew()
+#GET           /showGenre            controllers.MovieActions.showGenre(id: Integer ?= 0)
 
-GET         /                     controllers.MovieActions.showAll()
-GET         /addNew               controllers.MovieActions.addNew()
-GET         /showGenre            controllers.MovieActions.showGenre(id: Integer ?= 0)
+#POST          /createMovie          controllers.MovieActions.createMovie()
 
-POST        /createMovie          controllers.MovieActions.createMovie()
+GET            /                    controllers.MovieActions.index
 
+GET           /api/movie            controllers.MovieActions.getMovies
+GET           /api/movie/:id        controllers.MovieActions.getMovie(id: Integer)
+POST          /api/movie            controllers.MovieActions.createMovie
+PUT           /api/movie/:id        controllers.MovieActions.updateMovie(id: Integer)
+DELETE        /api/movie/:id        controllers.MovieActions.deleteMovie(id: Integer)
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file         controllers.Assets.at(path="/public", file)
-GET         /webjars/*file        controllers.WebJarAssets.at(file)
+GET           /assets/*file         controllers.Assets.at(path="/public", file)
+GET           /webjars/*file        controllers.WebJarAssets.at(file)
