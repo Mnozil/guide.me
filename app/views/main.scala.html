@@ -8,15 +8,22 @@
         <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
         <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
     </head>
-    <body>
+    <body ng-app="movieCollection">
 
         <div class="container">
             <h1>My movie collection</h1>
             <ul class="nav nav-tabs">
-                <li role="presentation" class=""><a href="#">Show All Movies</a></li>
-                <li role="presentation" class=""><a href="#">Show by Genre</a></li>
-                <li role="presentation" class=""><a href="#">Add new Movie</a></li>
+                <li role="presentation" class=""><a ui-sref="show_all">Show All Movies</a></li>
+                <li role="presentation" class=""><a ui-sref="add_movie">Add new Movie</a></li>
             </ul>
         </div>
+        <div ui-view></div>
+
+        <script type="text/javascript" src="@routes.WebJarAssets.at(WebJarAssets.locate("angular.js"))"></script>
+        <script type="text/javascript" src="@routes.WebJarAssets.at(WebJarAssets.locate("angular-ui-router.js"))"></script>
+        <script type="text/javascript" src="@routes.WebJarAssets.at(WebJarAssets.locate("js-data.js"))"></script>
+        <script type="text/javascript" src="@routes.WebJarAssets.at(WebJarAssets.locate("js-data-angular.js"))"></script>
+
+        <script type="text/javascript" src="@routes.Assets.at("js/app.js")"></script>
     </body>
 </html>
