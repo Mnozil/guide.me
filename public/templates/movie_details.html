@@ -13,6 +13,9 @@
     </tr>
     <tr>
         <th>Watched</th>
-        <td>{{movie.watched | boolHuman}}</td>
+        <td><edit-bool value="movie.watched"></edit-bool></td>
     </tr>
 </table>
+<button class="button" ng-click="delete()">
+    <span class="glyphicon glyphicon-trash"></span> Delete
+</button>

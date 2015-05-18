@@ -97,5 +97,23 @@
             }],
             templateUrl: 'assets/templates/edit_text.html'
         };
-    })
+    });
+    App.directive('editBool', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                value: '='
+            },
+            require:'value',
+            controller: ['$scope', function($scope){
+                $scope.toggleValue = function(){
+                    $scope.value = !($scope.value);
+                    //seems to be a bug on js-data, needs a new run loop apparently
+                    window.setTimeout(function() { $scope.$parent.update();}, 1);
+
+                }
+            }],
+            templateUrl: 'assets/templates/edit_bool.html'
+        };
+    });
 })()
